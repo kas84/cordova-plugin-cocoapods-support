@@ -159,21 +159,25 @@ module.exports = function (context) {
                         entry += ", :commit => '" + pod.commit + "'";
                     }
 
-                } else if (pod.path) {
+                }
+                if (pod.path) {
                     entry += ", :path => '" + pod.path + "'";
-                } else if (pod.subspecs) {
+                }
+                if (pod.subspecs) {
                     var specs = pod.subspec.split(',').map(function (spec) {
                         return "'" + spec.trim() + "'";
                     });
                     entry += ", :subspecs => [" + specs.join() + "]";
-                } else if (pod.configuration) {
+                }
+                if (pod.configuration) {
                     entry += ", :configuration => '" + pod.configuration + "'";
                 } else if (pod.configurations) {
                     var configs = pod.configurations.split(',').map(function (config) {
                         return "'" + config.trim() + "'";
                     });
                     entry += ", :subspecs => [" + configs.join() + "]";
-                } else if (pod.podspec) {
+                }
+                if (pod.podspec) {
                     entry += ", :podspec => '" + pod.podspec + "'";
                 }
 
@@ -367,4 +371,3 @@ module.exports = function (context) {
         }
     }
 };
-
